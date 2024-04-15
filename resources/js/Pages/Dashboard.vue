@@ -2,8 +2,6 @@
 import { Head, Link } from '@inertiajs/vue3';
 import editor from '@/Components/CKEditor.vue';
 
-
-
 defineProps({
   canLogin: {
     type: Boolean,

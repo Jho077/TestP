@@ -21,10 +21,10 @@ defineProps({
 });
 
 const contentEditor = `<h2>
-          Hola,
+          Bones,
         </h2>
         <p>
-          Este es un ejemplo de cÃ³mo pasar editorData como prop.
+          Exemple 
         </p>`
 function handleImageError() {
   document.getElementById('screenshot-container')?.classList.add('!hidden');

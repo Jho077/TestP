@@ -345,5 +345,4 @@ function handleImageError() {
             </div>
         </div>
     </div>
-    
 </template>

@@ -2,8 +2,6 @@
 import { Head, Link } from '@inertiajs/vue3';
 import editor from '@/Components/CKEditor.vue';
 
-
-
 defineProps({
   canLogin: {
     type: Boolean,
@@ -19,22 +17,7 @@ defineProps({
     type: String,
     required: true,
   },
-  deportes: {
-    type: String,
-    required: true,
-  },
-  comunicacions: {
-    type: Array,
-    required: true,
-  },
-  daws: {
-    type: Array,
-    required: true,
-  },
-  chinos: {
-    type: String,
-    required: true,
-  },
+
 });
 
 const contentEditor = `<h2>
@@ -69,28 +52,38 @@ function handleImageError() {
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li><a>Item 1</a></li>
         <li>
+          <a>Parent</a>
+          <ul class="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
         </li>
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a href='/dashboard'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 ml-4" fill="none" stroke="currentColor">
+    <a href='/dashboard'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 mr-4" fill="none" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10v5l4 2 4-2v-5h-8z"/>
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 14l3 3 3-3M12 6v5"/>
 </svg>
 </a>
   </div>
-  <div class="navbar-center hidden lg:flex font-bold">
-    <ul class="menu menu-horizontal px-1 text-2xl">
-        <li><a :href="route('deporte.view')">Deporte</a></li>
-        <li><a :href="route('comunicacion.view')">Comunicación</a></li>
-        <li><a :href="route('daw.view')">Daw</a></li>
-        <li><a :href="route('chino.view')">Chino</a></li>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li><a>Item 1</a></li>
+      <li>
+        <details>
+          <summary>Parent</summary>
+          <ul class="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a>Item 3</a></li>
     </ul>
   </div>
   <div class="navbar-end">
-    
-    <Link :href="route('logout')" method="post"  as="button" class="font-bold">Cerrar Sesión</Link>
-
+    <a class="btn">Login</a>
   </div>
 </div>
     
@@ -103,83 +96,11 @@ function handleImageError() {
           </div>
 
         </header>
-        <div class="flex items-center justify-center font-bold text-3xl">
-    <p>¡Bienvenidos a Eva, deja de aburrirte en clases y fíjate en los cursos que tenemos para ti!</p>
-        </div>
-        <main class="mt-6">
-            <div class="carousel w-full">
-  <div id="item1" class="carousel-item w-full">
-    <img src="/images/deporte.jpeg" class="w-full" />
-  </div> 
-  <div id="item2" class="carousel-item w-full">
-    <img src="/images/comunicacio.jpeg" class="w-full" />
-  </div> 
-  <div id="item3" class="carousel-item w-full">
-    <img src="/images/informatica.jpeg" class="w-full" />
-  </div> 
-  <div id="item4" class="carousel-item w-full">
-    <img src="/images/chino.jpeg" class="w-full" />
-  </div>
-</div> 
-<div class="flex justify-center w-full py-2 gap-2">
-  <a href="#item1" class="btn btn-xs">1</a> 
-  <a href="#item2" class="btn btn-xs">2</a> 
-  <a href="#item3" class="btn btn-xs">3</a> 
-  <a href="#item4" class="btn btn-xs">4</a>
-</div>
 
+        
 
-<div class="flex flex-wrap justify-center">
-    <div v-for="deporte in deportes" :key="deporte.id" class="max-w-sm rounded overflow-hidden shadow-lg m-4">
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{{ deporte.nombre }}</div>
-            <p class="text-gray-700 text-base">{{ deporte.descripcion }}</p>
-        </div>
-        <div class="px-6 py-4">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ deporte.nivel }}</span>
-        </div>
-    </div>
-</div>
+          <editor :editor="editor" :contentEditor="contentEditor"></editor>
 
-    <div class="flex flex-wrap justify-center mt-5">
-    <div v-for="daw in daws" :key="daw.id" class="max-w-sm rounded overflow-hidden shadow-lg m-4">
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{{ daw.nombre }}</div>
-            <p class="text-gray-700 text-base">{{ daw.descripcion }}</p>
-        </div>
-        <div class="px-6 py-4">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ daw.nivel }}</span>
-        </div>
-    </div>
-</div>
-
-<div class="flex flex-wrap justify-center mt-5">
-    <div v-for="comunicacion in comunicacions" :key="comunicacion.id" class="max-w-sm rounded overflow-hidden shadow-lg m-4">
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{{ comunicacion.nombre }}</div>
-            <p class="text-gray-700 text-base">{{ comunicacion.descripcion }}</p>
-        </div>
-        <div class="px-6 py-4">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ comunicacion.nivel }}</span>
-        </div>
-    </div>
-</div>
-<div class="flex flex-wrap justify-center">
-    <div v-for="chino in chinos" :key="chino.id" class="max-w-sm rounded overflow-hidden shadow-lg m-4">
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{{ chino.nombre }}</div>
-            <p class="text-gray-700 text-base">{{ chino.descripcion }}</p>
-        </div>
-        <div class="px-6 py-4">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ chino.nivel }}</span>
-        </div>
-    </div>
-</div>
-
-
-          <editor class="mt-4" :editor="editor" :contentEditor="contentEditor"></editor>
-
-        </main>
 
         <footer class="py-16 text-center text-sm text-black dark:text-white/70">
           Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})

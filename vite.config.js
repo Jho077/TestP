@@ -16,12 +16,12 @@ export default defineConfig({
                 },
             },
         }),
-        test: {
-            globals: true,
-            environmentMatchGlobs: [
-                ['tests/Feature/**', 'node'],
-                ['tests/**' , 'jsdom']
-            ]
-        },
     ],
+    test: {
+        globals: true,
+        environmentMatchGlobs: [
+            ['tests/Feature/**', 'node'],
+            ['tests/**' , 'jsdom']
+        ]
+    },
 });

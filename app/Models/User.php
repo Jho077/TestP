@@ -44,4 +44,23 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function deportes()
+    {
+        return $this->belongsToMany(Deporte::class);
+    }
+
+    public function chino()
+    {
+        return $this->belongsToMany(Chino::class);
+    }
+
+    public function daw()
+    {
+        return $this->belongsToMany(Daw::class);
+    }
+
+    public function comunicacion()
+    {
+        return $this->belongsToMany(Comunicacion::class);
+    }
 }

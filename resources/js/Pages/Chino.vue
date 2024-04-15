@@ -2,8 +2,6 @@
 import { Head, Link } from '@inertiajs/vue3';
 import editor from '@/Components/CKEditor.vue';
 
-
-
 defineProps({
   canLogin: {
     type: Boolean,
@@ -17,18 +15,6 @@ defineProps({
   },
   phpVersion: {
     type: String,
-    required: true,
-  },
-  deportes: {
-    type: String,
-    required: true,
-  },
-  comunicacions: {
-    type: Array,
-    required: true,
-  },
-  daws: {
-    type: Array,
     required: true,
   },
   chinos: {
@@ -52,7 +38,7 @@ function handleImageError() {
 
 <template>
 
-  <Head title="Welcome" />
+  <Head title="Chino" />
   <div class="bg-gray-50 text-black/50 ">
 
     <div class="navbar bg-base-100">
@@ -88,9 +74,7 @@ function handleImageError() {
     </ul>
   </div>
   <div class="navbar-end">
-    
     <Link :href="route('logout')" method="post"  as="button" class="font-bold">Cerrar Sesión</Link>
-
   </div>
 </div>
     
@@ -104,66 +88,16 @@ function handleImageError() {
 
         </header>
         <div class="flex items-center justify-center font-bold text-3xl">
-    <p>¡Bienvenidos a Eva, deja de aburrirte en clases y fíjate en los cursos que tenemos para ti!</p>
+    <p>¡Bienvenidos al curso de chino, 希望你一切順利</p>
         </div>
         <main class="mt-6">
             <div class="carousel w-full">
   <div id="item1" class="carousel-item w-full">
-    <img src="/images/deporte.jpeg" class="w-full" />
-  </div> 
-  <div id="item2" class="carousel-item w-full">
-    <img src="/images/comunicacio.jpeg" class="w-full" />
-  </div> 
-  <div id="item3" class="carousel-item w-full">
-    <img src="/images/informatica.jpeg" class="w-full" />
-  </div> 
-  <div id="item4" class="carousel-item w-full">
     <img src="/images/chino.jpeg" class="w-full" />
-  </div>
+  </div> 
 </div> 
-<div class="flex justify-center w-full py-2 gap-2">
-  <a href="#item1" class="btn btn-xs">1</a> 
-  <a href="#item2" class="btn btn-xs">2</a> 
-  <a href="#item3" class="btn btn-xs">3</a> 
-  <a href="#item4" class="btn btn-xs">4</a>
-</div>
 
 
-<div class="flex flex-wrap justify-center">
-    <div v-for="deporte in deportes" :key="deporte.id" class="max-w-sm rounded overflow-hidden shadow-lg m-4">
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{{ deporte.nombre }}</div>
-            <p class="text-gray-700 text-base">{{ deporte.descripcion }}</p>
-        </div>
-        <div class="px-6 py-4">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ deporte.nivel }}</span>
-        </div>
-    </div>
-</div>
-
-    <div class="flex flex-wrap justify-center mt-5">
-    <div v-for="daw in daws" :key="daw.id" class="max-w-sm rounded overflow-hidden shadow-lg m-4">
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{{ daw.nombre }}</div>
-            <p class="text-gray-700 text-base">{{ daw.descripcion }}</p>
-        </div>
-        <div class="px-6 py-4">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ daw.nivel }}</span>
-        </div>
-    </div>
-</div>
-
-<div class="flex flex-wrap justify-center mt-5">
-    <div v-for="comunicacion in comunicacions" :key="comunicacion.id" class="max-w-sm rounded overflow-hidden shadow-lg m-4">
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{{ comunicacion.nombre }}</div>
-            <p class="text-gray-700 text-base">{{ comunicacion.descripcion }}</p>
-        </div>
-        <div class="px-6 py-4">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ comunicacion.nivel }}</span>
-        </div>
-    </div>
-</div>
 <div class="flex flex-wrap justify-center">
     <div v-for="chino in chinos" :key="chino.id" class="max-w-sm rounded overflow-hidden shadow-lg m-4">
         <div class="px-6 py-4">
@@ -175,7 +109,6 @@ function handleImageError() {
         </div>
     </div>
 </div>
-
 
           <editor class="mt-4" :editor="editor" :contentEditor="contentEditor"></editor>
 

@@ -37,6 +37,8 @@ function handleImageError() {
 
   <Head title="Welcome" />
   <div class="bg-gray-50 text-black/50 ">
+
+
     
 
     <div

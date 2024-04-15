@@ -37,6 +37,7 @@ function handleImageError() {
 
   <Head title="Welcome" />
   <div class="bg-gray-50 text-black/50 ">
+    
 
     <div
       class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
